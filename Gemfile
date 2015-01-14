@@ -28,6 +28,10 @@ gem 'bootstrap-sass', '~> 3.0.2.1'
 gem 'devise', '~> 3.4.0'
 #Agrega font-awesome a la aplicación
 gem "font-awesome-rails"
+#Instalación de Omniauth
+gem "omniauth"
+#Instalación del middleware de facebook
+gem "omniauth-facebook"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
