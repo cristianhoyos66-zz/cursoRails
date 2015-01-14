@@ -26,7 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.0.2.1'
 #Use devise to handle the users model
 gem 'devise', '~> 3.4.0'
-
+#Agrega font-awesome a la aplicación
+gem "font-awesome-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
