@@ -22,6 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+#Adds bootstrap framework to our application
+gem 'bootstrap-sass', '~> 3.0.2.1'
+#Use devise to handle the users model
+gem 'devise', '~> 3.2.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
