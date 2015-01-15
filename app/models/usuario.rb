@@ -4,6 +4,13 @@ class Usuario < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter] 
+
+  validates :username, presence: true, uniqueness: true,
+            length: {minimum: 5, maximum: 20, too_short: "Debe tener al menos 5 caracteres", too_long: "Debe tener como máximo 20 caracteres"}, #in: 5..20
+            format: {with: /([A-Za-z0-9\-\_]+)/, message: "Username solo puede contener letras, números y guiones"}#Expresión regular solo para letras, número, guión y guión bajo
+  
+  #validate :validacion_personalizada, on: :create
+
   def self.find_or_create_by_omniauth(auth)
   	usuario = Usuario.where(provider: auth[:provider], uid: auth[:uid]).first
 
@@ -19,4 +26,14 @@ class Usuario < ActiveRecord::Base
   		)
   	end
   end
+
+  #private
+  #def validacion_personalizada
+  #  if true
+
+  #  else
+  #    errors.add(:username, "Tu username no es válido")
+  #  end
+  #end
+
 end

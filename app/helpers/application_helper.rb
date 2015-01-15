@@ -6,4 +6,13 @@ module ApplicationHelper
 			""
 		end
 	end
+
+	def get_username_oauth
+		if session[:omniauth_data]
+			session[:omniauth_data][:username]
+		else	
+			""
+		end
+	end
+
 end
