@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :posts
+
   devise_for :usuarios, controllers: {omniauth_callbacks: "omniauth_callbacks", 
                                       registrations: "registrations"}
   get 'welcome/index'
