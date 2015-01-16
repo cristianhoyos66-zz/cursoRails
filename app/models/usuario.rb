@@ -5,6 +5,10 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter] 
 
+  def email_required?
+    false
+  end
+
   validates :username, presence: true, uniqueness: true,
             length: {minimum: 5, maximum: 20, too_short: "Debe tener al menos 5 caracteres", too_long: "Debe tener como máximo 20 caracteres"}, #in: 5..20
             format: {with: /([A-Za-z0-9\-\_]+)/, message: "Username solo puede contener letras, números y guiones"}#Expresión regular solo para letras, número, guión y guión bajo
@@ -25,6 +29,7 @@ class Usuario < ActiveRecord::Base
   			password: Devise.friendly_token[0,20]
   		)
   	end
+    usuario
   end
 
   #private

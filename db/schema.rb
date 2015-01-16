@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115190105) do
+ActiveRecord::Schema.define(version: 20150116020645) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "titulo"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20150115190105) do
     t.string   "uid"
   end
 
-  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
 
 end
