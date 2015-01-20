@@ -3,8 +3,11 @@ module Picturable
 	included do
 		after_save :guardar_imagen
 	end
-	
-  PATH_ARCHIVOS = File.join Rails.root, "public", "archivos"
+	if self.respond_to?(:nombre)
+    PATH_ARCHIVOS = File.join Rails.root, "public", "archivos", "attachments"
+  else
+    PATH_ARCHIVOS = File.join Rails.root, "public", "archivos", "posts"
+  end
 
   def archivo=(archivo)
   	unless archivo.blank?
