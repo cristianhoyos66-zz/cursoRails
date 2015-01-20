@@ -5,6 +5,8 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter] 
 
+  has_many :posts
+
   def email_required?
     false
   end
