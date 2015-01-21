@@ -6,10 +6,24 @@ class Usuario < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook, :twitter] 
 
   has_many :posts
+  has_many :friendships
+  has_many :follows, through: :friendships, source: :usuario
+  has_many :followers_friendships, class_name: "Friendship", foreign_key: "usuario_id" 
+  has_many :followers, through: :followers_friendships, source: :friend
 
+  def follow!(amigo_id)
+    friendships.create!(friend_id: amigo_id)
+  end
+
+  def can_follow?(amigo_id)
+    not amigo_id == self.id or friendships.where(friend_id: amigo_id).size > 0
+  end
+    
   def email_required?
     false
   end
+
+
 
   validates :username, presence: true, uniqueness: true,
             length: {minimum: 5, maximum: 20, too_short: "Debe tener al menos 5 caracteres", too_long: "Debe tener como máximo 20 caracteres"}, #in: 5..20
