@@ -1,0 +1,8 @@
+<li class="list-group-item">
+	<%= link_to activity.owner.username, activity.owner %> Se hizo amigo de: 
+	<% if activity.trackable.friend.username %>	
+		<%= link_to activity.trackable.friend.username, activity.trackable.friend %>			
+	<% else %>
+		<%= link_to activity.trackable.friend.email, activity.trackable.friend %>
+	<% end %>
+</li>

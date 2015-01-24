@@ -34,6 +34,8 @@ gem "omniauth"
 gem "omniauth-facebook"
 #Instalación del middleware de twitter
 gem "omniauth-twitter"
+# PublicActivity maneja el feed
+gem 'public_activity'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

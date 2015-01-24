@@ -6,10 +6,10 @@ class Usuario < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook, :twitter] 
 
   has_many :posts
-  has_many :friendships
-  has_many :follows, through: :friendships, source: :usuario
-  has_many :followers_friendships, class_name: "Friendship", foreign_key: "usuario_id" 
-  has_many :followers, through: :followers_friendships, source: :friend
+  has_many :friendships, foreign_key: "usuario_id", dependent: :destroy
+  has_many :follows, through: :friendships, source: :friend
+  has_many :followers_friendships, class_name: "Friendship", foreign_key: "friend_id" 
+  has_many :followers, through: :followers_friendships, source: :usuario
 
   def follow!(amigo_id)
     friendships.create!(friend_id: amigo_id)
