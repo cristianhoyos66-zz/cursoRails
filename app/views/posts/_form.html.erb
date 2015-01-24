@@ -22,6 +22,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :costo %>
+    <%= f.number_field :costo, class: "form-control", step: "any" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :contenido %><br>
     <%= f.text_area :contenido, class: "form-control" %>
   </div>

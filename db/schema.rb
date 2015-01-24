@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124184201) do
+ActiveRecord::Schema.define(version: 20150124220748) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(version: 20150124184201) do
     t.text     "contenido"
     t.string   "extension"
     t.integer  "usuario_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.decimal  "costo",      precision: 10, scale: 3
   end
 
   add_index "posts", ["usuario_id"], name: "index_posts_on_usuario_id"
